@@ -1,0 +1,70 @@
+export const STORE = {
+  name: "BOUNOUR",
+  tagline: "TECH",
+  phone: "0559337429",
+  address: "Ouled Yaich, Blida — en face le showroom FIAT (HCI)",
+  email: "bounourtech@gmail.com",
+  socials: {
+    facebook: "https://www.facebook.com/Lexusdeco",
+    instagram: "https://www.instagram.com/bounour.tech/",
+    tiktok: "https://www.tiktok.com/@bounour.tech",
+    youtube: "https://www.youtube.com/@BounourTech-x2s",
+  },
+};
+
+export const CATEGORIES = [
+  { id: "all", name: "Tout", nameAr: "الكل" },
+  { id: "smartphones", name: "Smartphones", nameAr: "هواتف" },
+  { id: "earpods", name: "Earpods", nameAr: "سماعات" },
+  { id: "casque", name: "Casques", nameAr: "سماعات رأس" },
+  { id: "baffle", name: "Enceintes", nameAr: "مكبراات" },
+  { id: "tablette", name: "Tablettes", nameAr: "أجهزة لوحية" },
+  { id: "smartwatch", name: "Montres", nameAr: "ساعات" },
+  { id: "accessoires", name: "Accessoires", nameAr: "إكسسوارات" },
+  { id: "chargeurs", name: "Chargeurs", nameAr: "شواحن" },
+  { id: "gaming", name: "Gaming", nameAr: "ألعاب" },
+  { id: "cables", name: "Câbles", nameAr: "كوابل" },
+  { id: "powerbank", name: "Power Bank", nameAr: "بطاريات" },
+];
+
+export const WILAYAS = ["01 - Adrar","02 - Chlef","03 - Laghouat","04 - Oum El Bouaghi","05 - Batna","06 - Béjaïa","07 - Biskra","08 - Béchar","09 - Blida","10 - Bouira","11 - Tamanrasset","12 - Tébessa","13 - Tlemcen","14 - Tiaret","15 - Tizi Ouzou","16 - Alger","17 - Djelfa","18 - Jijel","19 - Sétif","20 - Saïda","21 - Skikda","22 - Sidi Bel Abbès","23 - Annaba","24 - Guelma","25 - Constantine","26 - Médéa","27 - Mostaganem","28 - M'Sila","29 - Mascara","30 - Ouargla","31 - Oran","32 - El Bayadh","33 - Illizi","34 - Bordj Bou Arréridj","35 - Boumerdès","36 - El Tarf","37 - Tindouf","38 - Tissemsilt","39 - El Oued","40 - Khenchela","41 - Souk Ahras","42 - Tipaza","43 - Mila","44 - Aïn Defla","45 - Naâma","46 - Aïn Témouchent","47 - Ghardaïa","48 - Relizane","49 - El M'Ghair","50 - El Meniaa","51 - Ouled Djellal","52 - Bordj Badji Mokhtar","53 - Béni Abbès","54 - Timimoun","55 - Touggourt","56 - Djanet","57 - In Salah","58 - In Guezzam"];
+
+export const fmt = (n: number) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+/* ─── Encoded catalog ─── */
+const _E = "9tWN2ZOIgpiX2JWCm+na0c7L0afhhaKopL6+6Ij7/e7h7K3y6/CAtbilora++Pf+rfzl09fS09TJxIjK09nS2d3ew9KS0MnWhpuWio2Kk5OTm4wiLSBkJj8kV2d5f2dtZHxqMj0wfjYvNCrpOzY5bz8kPRYPFX8GBWdqZ2VvbwyaDh4CCXVxFIIWAgh0ahlBEUUdKWN4cWhnKGVyawMlKiQgJihxGjwgdWNneAkoNHd/cn0CQ1hBLQsADgYAEklATx5NSkJAQ0RFWlUXW0BLUF8dXbqj8e7l9/L34Obk7v+voq33s6ixtrm0+rqjuKZtv7K904OYgZKLkZ/0i4ri/P6OGJCDh4Xz95YAmIiKg/HtnMLsuuCq5v/16+qn6PHun6uuvLy385fi4/X0+7j55v+MuoGNj4bGycSXytPY09nd3oPSntDJx8TGx8jV2Jjex9yMbWBwd3RtaWlteignLmosNTJBYHx5ejQ7OnQ4IT4g7z0MA1EBHgcQCR8bdgkMZH58EIYSAgYNcXUYjhoODHBuHT1tOWEtZ3xzZGskaXZvGiozPz1zByU3JTN5aWt8DSwwQk1AAUZfRDMNCgQETkFMH1JLQEpNRUZbWhZYQUxRXByiu6Dw6eT08/jh5eXp/qyjsvawqba3urX1u6C5oWy8s4LSgJmGk4iQkPWIixuNnJqG9vCTA5WHh4D06pnBkcWdqeP49ujnqOXy65iuqKCn756+prb05OL3iKu1+fD/vP3aw7CGgIiPxcTLmsnW2NzfwMHe0ZvXzMLOycrL0N+d3TojcW5ld3J3YGZkbn8vIi17MygxKLI0OzpqOCE+X3JqRVVNTFBNBhIGGAqcDBwWRxCGEn9xcRRKFEIYUh4HDw1sYyxhfmcMKDE7JSQhbRp+ZXN+cTZ3bHUSNiMpMzIzfUxDEkFeVl9XWEVIBE5XXkNSElBJVhAXBQgWHgheUVwYorugoain66Wyq7YsrqGs/LKrsNH44PPj9/bu87yosK2AFoKRlM2GEIjo5OiO0ILUktiQiYWGmpXWm4CZ9PL98OCW9vXkjaOmrLqvv+7h7K3y6/Cbm5aZ9fT7qvnm6+zv0M3AjMbf0dfY2cbJj8/UzZOQgYKBkNTb2p7Ywd7f0t1tIzghOKIkKyp6KDEuQnhqYjx3cmY1oTdZV1k7qz0qL0gBlQN0SU9GSkVPCVEBVQ1ZEwgCABkUWRoDGGtQUlVeLSBiE31lCyYwa2ZpLm90bQA9PTg1ODd1dHsqeWZuZm9QTUAMRl9WS0oKSFFODg8cAQQXUVhXEVVCWyoUDAgSHunz56Gop+ulsqu2LK6hrPyyq7Dc4vDkuv346LsrvdLa5IEVg+bJ08LcxsXfxI2bgYGTz5/Pl9+VgoiPl57TnIXiiquwq6uqruia8+ufvauuu7Sg8fj3tPXi+5Gyr7Kws4nDzsGUx9zT2tnax86CzNXEycLD2NeV1cLbmJqam5KaIi0gZCY/JCUkK2cpNi8zBTI9MGA2LzQmKE46rDxfcmpFVU1MUE0GkAh8eWkDeWgPhxFgdHYXSxtDG1MZBgwIE2IvYHlmDi80JycmImwBHmJhZ3B/djd0bXoSMygzMzI2Qk1AE0ZfUVJYWUZJA09UX1xTEVFOVxQWHh8WHl5RXBiiu6DN6/Dw4un8qKeu4Ky1sqyYsbi35bWiu6iry70pv+TUw8+EEobz//qKHIzk/veEk8+fz5fflYKIjZee05yF4oKLh4GE5oSF/fLz7Jmvrby0pqex9/r1uvvg+Z+Umpqhw87BlMfc1tDZ2tvAz4HNysPDw8TF2tWb28DZiJyck2V1dmYmKSRgKjMoW35iY2AyPTB+Ni80Ksc7NjlvPyQ9EREMEngHBpAIHx5sbg2ZDwR2EoQUdFhTSlZTXxwMDR09bTlhLWd8dnBlaCVud2wCPzU7PHQYZG94DTs5fnF8PUJbQC4LAQ8ISkVIG05XX1pFQUJfVhpUTUhVWBheR1wL4ePu5vDx46Wkq+2ptq+so7L8sKm2qEm1tLvpuaa/r6+OkP6BhBKGlpqR7emMGo742ffbkwOVgIeIidf61J/Dk7vjq+H+9P/r6qfo8e6Dr6258YGju6ei94+4rri0//L9gsPYwaqEhI7Kxcibztfb2sDB3tGb18zBysnK196e3MUicm9idnFxZnxqYikgL2ktKjMwPzZ4NC06Azg3Pm48JQIQDBsReQQHaWRlZ2lpDpgQeGIFDBWBF2tJdQkcih54EBJgPmg+ZC5qc3h7YG8gbWpzGjI9Ozl3DDwxNHwPCXJUUEBPRgdEXUohCwICAk47FRodUVhXBlVCTkJLTFFcEKK7sq+m5qS9qvrn6v75+e7k8vqxuLfxtaK71PTp6/v+1YOOgcmHnIWyi4aJ34+UjYGfi4bol5YAmPf8+JwKnv6wsaevt+Vx5//poKS5v73trf2p8b337OXp9fi1/uf8no6Kh5HEtYmQjZuphJ6Izt7AutDf1pfUzdq4lJCZj9zTInEgOTIwNjckK2UpNjo8PyA9MHA2LzRnd25/aX58cHQCDQBEBh8EBQQLRwkWDxMkEh0QQBYPFAYICQoLUXxWH/dhcHFqcBFn/2kfGA5gDW/ncQIXdih6LHoweGFub3J9DkNYQScEFhQRGkpZXF1eXx0wGlFYVxRVQls5GgwOBwyiraDzpr+yv7i5pqnjr7S/vLPxsa637vjv/Oj5/fP1vYyDxYGeh/bI2NzGysXfy42ck9+RjpeLvJqVmMieh5yN8PHy86mErud/6fizmZ6M72fxnpaQ9WH36eGN+aHxpf2Jw9jR18nEicrTyKqChoud0MLDwdS2npaKnp+Ojt3MylcjLiFmJzwlSWdhbn4vIi1gMyggJiUmOzp2OCEvJS4vDANBAR4HRU9JW01OWV9dDRwTVREOFxQbGlQYAR4AMh1sYzFhfmd0ch9p/WsZHgxiE3HlcwQRdmR2aXrsfBo/EUIcThhGDERdWl1GSQJPVE04PjE8VDtFQFg6EhoOGhsK8qOuoeanvKXAxsnErqGs/7KroKGkpbq197ugq7C//b2ag8HLxdfBwt3b2YmAj8mNipOQn5bYlI2ahLaZkJ/Nnfrj8POT5XHnmI3qfOyYnY39kvJk9Ja5uqi4ua/+oPKkwojA2dbQysWGy9DJtYidhpSe0rC1xM7O2KqPi4ySjIsiLSBhJj8kXm16Y29jLyItYDMoIiwlJjs6djghLi8uLwwDQQEeB0dES0xZWENEXEpDEx4RUxcMFRoVGFYeBxwCjmNuYTdnfGUFKC0lpTknPiU0cuR0ZmBn6HntewoyNysVEwdBGUkdRQFLUFlaQUwBUktQOTk0JC5YLQiSDBQbG6DM1q6yvaSrquuosa7Hw87CyLC/tuW0rausqquwv/G9mpGOgceHnIXJysnO397BxsLUwZGYl9GVgpuYl57QnIXi/Azh6Oe15fLr++X7oO548JO+prGhubissfps/I+3sYfBroqDjZLFlcWRyYXP1N3H3dCd1s/UpJeXg9u4iJ+TU2RscGElVlQ9KyYpbi80LUN+fGo2OTRnOiMrLyktLjMCTgAZFRMWFxgFCEgOFwxIUVxbXVMXGhVfGwAZflhNS2ASJy8oIDRlZGsnaXZvcuFyfXAgdm90BDk3KXs6NDJ/10EqAhQRDxYdDErcTDg9LV0yUA5YDlQeWkNIQ1BfEF26o8/i6uDy8+2pyOf56Prg/+X6s8ymtLu6+7ihvtzr69LE0YGIh9aFkpqYm5yBjMCSi4KfltaUjZre29bV09md7OOl4f7n5OvqpOjx7vFg7fzzofHu95S7rbyutLOptv9XwaONgJeJjozGg6S/zVnPs52bg9aI2ozakNjBzsTS3W4jOCFH52RrbSlfWE4gTS9Rf3l2ZjUnOSB0ODc+fzwlAmBMSEFXBAsKWQgRHR8eHxwTXREOBAMHCBUYWB4HHFwhIy4mN2dqZS9rcGluYWwicmtwbkN3enUre2B5am0Jf9dBLBoICghH30k/OC5ALU8GFAAAVDZUClQCWBJeR01PrKPsob6n3siox8im3b+7v7Dd+/T84fj+9v64t77/vKWC+e2BiIfWhZKQmpuAj8GNioGekdeXjJXb2NjX2c6ck+Km4Pnm5+rlpevw6fHa7OPyovDp9ufhgPhu+ouY/Wn/rIiFi5CLj4mPyV3L3YDMktyK0JrWz8XG1NuU2cbfuZByaG5vZSVFaHl8bytNY3pmc3l9cDY5NHU6Izhcc293c0xAAA8GVQQdGRwaGwAPQQ0KAAsDBBkUVBoDGFpfXltMMy4rMSE2ZGtqLmhxbh08ID0+cH92OHRtemS7VH5xfCxCW0AuBQI1Bg4MStxMORwOHgICEgYQGANYzlo6DhALDeWj/6//p++lsrq4p67jrLWyyef98Pq21Pfo7/682v/zwdnbg+WUkIWEi8iJlo/22t7V3ZGYl8aVgoiIi4yRnNDi+/Lv5qbk/eqoqaipvr2guaO3oPb59LD64/j58P+z/drD3wLrx8rFm8vQybi9u89H0aaBlZuFh5mLn5WI3UnfQWhwYWViJHokcihiLjc9PDwzfDEuN19jfXU6SygtNT0MA0ABHgdvU01FCAcOXQwVAQkHAwQZFFgaAwoXHl4cBWIyLyI2MTYvJycvOG5hbChya3BxeHc7dWJ7Z6p+cXwsQltAVUpTOkVI3kpdWCosT8dRQ0A5JVbAWExKS0wQPxei/K74puykvbu9pqnir7St3//3w/jg5bfW9uj/vN7bq4Dty9fBh4qFyouQiePDy//cxMGRmJfGlYKNgouMjZKdr+P49vb19vfk66np9u+9orGjpqO8uriyq/v2+bv/5P2ujpeVgYSTxcTLh8nWz9Me0t3QgNbP1MHWz82n3t2/sk9NR0cksiY1PT9NSSy6Lj4gKV9DNmg6bDpwOCEvKDI9TgMYAWNXQ0JGZUNEQg1rTkJTR1dHFXEEGhUYWR4HHHgyJCctCCwpKWplaDtud3p9YGF+cTt3bGd0ezl5Zn87PhIRDQcXR0pFD0tQSU5BTAJSS1BP01daVQtbQFk+KV5KrrKiNKS2tu+oPqrM7eDrr93+9va26LrsuvC4oa+rsr3Og5iB98TI48HawYuamentkOTh8ZSGmIealZjZnoec7LWvhqq3ruTr6rno8f38/v/8873x7uX69bv74Pm9vr26k5KNipaAlcXEy43J1s/Mw9Kc0MnWyEjV1NuJ2cbfyMtHQyK0JFBVRSg6JDssui4+IyFfUTtmNGpF";
+const _K = 173;
+const _X = (d: string, k: number) => {
+  const raw = atob(d);
+  const chars: string[] = [];
+  for (let i = 0; i < raw.length; i++) chars.push(String.fromCharCode(raw.charCodeAt(i) ^ ((k + i) % 256)));
+  return JSON.parse(chars.join(""));
+};
+const _M: Record<string, string> = { i: "id", n: "name", b: "brand", p: "price", o: "oldPrice", c: "cat", g: "badge", m: "img", s: "specs" };
+const _R = (items: Record<string, unknown>[]) => items.map((x: Record<string, unknown>) => {
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(x)) out[_M[k] || k] = k === "o" ? (v || null) : k === "g" ? (v || null) : v;
+  return out;
+});
+
+export interface Product {
+  id: number;
+  name: string;
+  brand: string;
+  price: number;
+  oldPrice: number | null;
+  cat: string;
+  badge: string | null;
+  img: string;
+  specs: string;
+}
+
+export function getProducts(): Product[] {
+  return _R(_X(_E, _K)) as unknown as Product[];
+}
+
+export function getBadgeVariant(badge: string | null): "promo" | "new" | "default" {
+  if (badge === "Promo") return "promo";
+  if (badge === "Nouveau") return "new";
+  return "default";
+}
