@@ -60,7 +60,7 @@ export interface Product {
 }
 
 export function getProducts(): Product[] {
-  return _R(_X(_E, _K)) as Product[];
+  return _R(_X(_E, _K)) as unknown as Product[];
 }
 
 export function getBadgeVariant(badge: string | null): "promo" | "new" | "default" {
