@@ -395,7 +395,26 @@ function BounourTechShop() {
                     <label className="text-xs text-muted-foreground uppercase tracking-wider block mb-1">Note</label>
                     <textarea className="w-full bg-card border border-border rounded-lg px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:shadow-[0_0_8px_var(--accent-glow)] transition-all resize-y min-h-[60px] text-foreground" placeholder="Instructions spéciales…" value={orderNote} onChange={e => setOrderNote(e.target.value)} />
                   </div>
-                  <button
+                  <div>
+                    <label className="text-xs text-muted-foreground uppercase tracking-wider block mb-2">Mode de paiement *</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {([
+                        { value: "dahabia" as const, label: "Dahabia", icon: "💳" },
+                        { value: "cib" as const, label: "CIB", icon: "🏦" },
+                        { value: "cash" as const, label: "Cash", icon: "💵" },
+                      ]).map(opt => (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          className={`flex flex-col items-center gap-1 py-3 rounded-lg border text-sm font-medium transition-all ${orderPayment === opt.value ? "border-primary bg-primary/10 text-primary shadow-[0_0_8px_var(--accent-glow)]" : "border-border bg-card text-muted-foreground hover:border-primary/50"}`}
+                          onClick={() => setOrderPayment(opt.value)}
+                        >
+                          <span className="text-lg">{opt.icon}</span>
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                     className="w-full bg-green-600 text-white py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2.5 hover:bg-green-700 hover:-translate-y-0.5 hover:shadow-[0_6px_15px_rgba(37,211,102,0.3)] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0 disabled:shadow-none"
                     onClick={sendWhatsApp}
                     disabled={!orderName.trim() || !orderPhone.trim()}
