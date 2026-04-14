@@ -72,17 +72,20 @@ function BounourTechShop() {
     setCart(prev => prev.filter(i => i.id !== id));
   }, []);
 
+  const paymentLabels = { dahabia: "Dahabia", cib: "CIB", cash: "Paiement à la livraison" };
+
   const sendWhatsApp = useCallback(() => {
     if (!orderName.trim() || !orderPhone.trim()) return;
     let msg = `*طلب جديد — BOUNOURTECH*\n\n`;
     msg += `*الاسم:* ${orderName}\n*الهاتف:* ${orderPhone}\n*الولاية:* ${orderWilaya}\n`;
     if (orderAddress) msg += `*العنوان:* ${orderAddress}\n`;
+    msg += `*طريقة الدفع:* ${paymentLabels[orderPayment]}\n`;
     if (orderNote) msg += `*ملاحظة:* ${orderNote}\n`;
     msg += `\n*المنتجات:*\n`;
     cart.forEach(i => { msg += `• ${i.name} × ${i.qty} = ${fmt(i.price * i.qty)} DA\n`; });
     msg += `\n*المجموع: ${fmt(cartTotal)} DA*`;
     window.open(`https://wa.me/213${STORE.phone.slice(1)}?text=${encodeURIComponent(msg)}`, "_blank");
-  }, [orderName, orderPhone, orderWilaya, orderAddress, orderNote, cart, cartTotal]);
+  }, [orderName, orderPhone, orderWilaya, orderAddress, orderNote, orderPayment, cart, cartTotal]);
 
   const quickOrder = useCallback((product: Product) => {
     const msg = `مرحبا، أريد طلب:\n\n*${product.name}*\nالسعر: ${fmt(product.price)} DA\n\nمن فضلك أرسلي تفاصيل التوصيل.`;
