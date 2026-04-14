@@ -37,6 +37,7 @@ function BounourTechShop() {
   const [orderWilaya, setOrderWilaya] = useState("09 - Blida");
   const [orderAddress, setOrderAddress] = useState("");
   const [orderNote, setOrderNote] = useState("");
+  const [orderPayment, setOrderPayment] = useState<"dahabia" | "cib" | "cash">("cash");
   const [addedToast, setAddedToast] = useState<string | null>(null);
 
   const productsRef = useRef<HTMLElement>(null);
