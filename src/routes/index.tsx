@@ -415,6 +415,7 @@ function BounourTechShop() {
                       ))}
                     </div>
                   </div>
+                  <button
                     className="w-full bg-green-600 text-white py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2.5 hover:bg-green-700 hover:-translate-y-0.5 hover:shadow-[0_6px_15px_rgba(37,211,102,0.3)] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0 disabled:shadow-none"
                     onClick={sendWhatsApp}
                     disabled={!orderName.trim() || !orderPhone.trim()}
