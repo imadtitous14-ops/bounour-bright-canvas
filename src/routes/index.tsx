@@ -172,7 +172,7 @@ function BounourTechShop() {
             </a>
           </div>
           <div className="flex gap-8 mt-10">
-            <div><div className="font-display text-3xl text-primary tracking-wide">36+</div><div className="text-xs text-muted-foreground uppercase tracking-wider">Produits</div></div>
+            <div><div className="font-display text-3xl text-primary tracking-wide">221+</div><div className="text-xs text-muted-foreground uppercase tracking-wider">Produits</div></div>
             <div><div className="font-display text-3xl text-primary tracking-wide">48</div><div className="text-xs text-muted-foreground uppercase tracking-wider">Marques</div></div>
             <div><div className="font-display text-3xl text-primary tracking-wide">58</div><div className="text-xs text-muted-foreground uppercase tracking-wider">Wilayas</div></div>
           </div>
@@ -241,7 +241,7 @@ function BounourTechShop() {
                       {p.badge}
                     </span>
                   )}
-                  {p.img}
+                  {p.img ? <img src={p.img} alt={p.name} className="w-full h-full object-cover" loading="lazy" /> : <span className="text-4xl text-muted-foreground">📦</span>}
                 </div>
                 <div className="p-4" onClick={() => { setSelectedProduct(p); setModalQty(1); }}>
                   <div className="text-[11px] text-primary uppercase tracking-[1.5px] font-semibold">{p.brand}</div>
@@ -286,7 +286,7 @@ function BounourTechShop() {
                   {selectedProduct.badge}
                 </span>
               )}
-              {selectedProduct.img}
+              {selectedProduct.img ? <img src={selectedProduct.img} alt={selectedProduct.name} className="w-full h-full object-cover" /> : <span className="text-6xl text-muted-foreground">📦</span>}
             </div>
             <div className="p-6">
               <div className="text-xs text-primary uppercase tracking-[2px] font-semibold">{selectedProduct.brand}</div>
