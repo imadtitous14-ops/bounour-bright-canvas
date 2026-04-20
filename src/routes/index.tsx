@@ -21,6 +21,12 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
+const FALLBACK_IMG =
+  "data:image/svg+xml;utf8," +
+  encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#1a1a1a"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="28">BOUNOUR TECH</text></svg>`
+  );
+
 function BounourTechShop() {
   const PRODUCTS = useMemo(() => getProducts(), []);
   const heroProduct = useMemo(() => PRODUCTS.find(p => p.id === 5), [PRODUCTS]);
@@ -43,13 +49,20 @@ function BounourTechShop() {
   const productsRef = useRef<HTMLElement>(null);
 
   const filtered = useMemo(() => {
+    if (!Array.isArray(PRODUCTS)) return [];
+    const q = search.trim().toLowerCase();
     return PRODUCTS.filter(p => {
+      if (!p) return false;
       const matchCat = activeCat === "all" || p.cat === activeCat;
-      const q = search.toLowerCase();
-      const matchSearch = !q || p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q) || p.specs.toLowerCase().includes(q);
+      const name = (p.name ?? "").toLowerCase();
+      const brand = (p.brand ?? "").toLowerCase();
+      const specs = (p.specs ?? "").toLowerCase();
+      const matchSearch = !q || name.includes(q) || brand.includes(q) || specs.includes(q);
       return matchCat && matchSearch;
     });
   }, [PRODUCTS, activeCat, search]);
+
+  const isLoading = !Array.isArray(PRODUCTS) || PRODUCTS.length === 0;
 
   const cartTotal = useMemo(() => cart.reduce((s, i) => s + i.price * i.qty, 0), [cart]);
   const cartCount = useMemo(() => cart.reduce((s, i) => s + i.qty, 0), [cart]);
@@ -223,7 +236,12 @@ function BounourTechShop() {
           </h2>
           <span className="text-sm text-muted-foreground">{filtered.length} produit{filtered.length !== 1 ? "s" : ""}</span>
         </div>
-        {filtered.length === 0 ? (
+        {isLoading ? (
+          <div className="text-center py-16">
+            <div className="text-5xl mb-2 animate-pulse">⏳</div>
+            <div className="text-muted-foreground text-sm">Chargement…</div>
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="text-center py-16">
             <div className="text-5xl mb-2 grayscale opacity-50">🔍</div>
             <div className="text-muted-foreground text-sm">Aucun produit trouvé</div>
@@ -246,14 +264,13 @@ function BounourTechShop() {
                     </span>
                   )}
                   <img
-                    src={p.img || `https://source.unsplash.com/400x400/?${encodeURIComponent(p.name)}`}
+                    src={p.img && p.img.startsWith("http") ? p.img : FALLBACK_IMG}
                     alt={p.name}
                     className="w-full h-full object-contain p-3"
                     loading="lazy"
                     onError={(e) => {
                       const img = e.currentTarget;
-                      const fallback = `https://source.unsplash.com/400x400/?${encodeURIComponent(p.name)}`;
-                      if (img.src !== fallback) img.src = fallback;
+                      if (img.src !== FALLBACK_IMG) img.src = FALLBACK_IMG;
                     }}
                   />
                 </div>
