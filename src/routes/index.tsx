@@ -253,14 +253,13 @@ function BounourTechShop() {
                     </span>
                   )}
                   <img
-                    src={p.img || `https://source.unsplash.com/400x400/?${encodeURIComponent(p.name)}`}
+                    src={p.img && p.img.startsWith("http") ? p.img : FALLBACK_IMG}
                     alt={p.name}
                     className="w-full h-full object-contain p-3"
                     loading="lazy"
                     onError={(e) => {
                       const img = e.currentTarget;
-                      const fallback = `https://source.unsplash.com/400x400/?${encodeURIComponent(p.name)}`;
-                      if (img.src !== fallback) img.src = fallback;
+                      if (img.src !== FALLBACK_IMG) img.src = FALLBACK_IMG;
                     }}
                   />
                 </div>
