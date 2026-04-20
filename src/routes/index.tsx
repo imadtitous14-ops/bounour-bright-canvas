@@ -237,7 +237,7 @@ function BounourTechShop() {
                 style={{ animationDelay: `${idx * 0.04}s` }}
               >
                 <div
-                  className="h-[200px] flex items-center justify-center text-6xl bg-white relative transition-colors"
+                  className="h-[220px] flex items-center justify-center text-6xl bg-transparent relative transition-colors"
                   onClick={() => { setSelectedProduct(p); setModalQty(1); }}
                 >
                   {p.badge && (
