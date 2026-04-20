@@ -237,7 +237,7 @@ function BounourTechShop() {
                 style={{ animationDelay: `${idx * 0.04}s` }}
               >
                 <div
-                  className="h-[200px] flex items-center justify-center text-6xl bg-surface relative transition-colors"
+                  className="h-[200px] flex items-center justify-center text-6xl bg-white relative transition-colors"
                   onClick={() => { setSelectedProduct(p); setModalQty(1); }}
                 >
                   {p.badge && (
@@ -245,7 +245,7 @@ function BounourTechShop() {
                       {p.badge}
                     </span>
                   )}
-                  {p.img ? <img src={p.img} alt={p.name} className="w-full h-full object-cover" loading="lazy" /> : <span className="text-4xl text-muted-foreground">📦</span>}
+                  {p.img ? <img src={p.img} alt={p.name} className="w-full h-full object-contain p-3" loading="lazy" /> : <span className="text-4xl text-muted-foreground">📦</span>}
                 </div>
                 <div className="p-4" onClick={() => { setSelectedProduct(p); setModalQty(1); }}>
                   <div className="text-[11px] text-primary uppercase tracking-[1.5px] font-semibold">{p.brand}</div>
@@ -281,7 +281,7 @@ function BounourTechShop() {
       {selectedProduct && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] flex items-center justify-center p-6 animate-[fade-in_0.2s]" onClick={() => setSelectedProduct(null)}>
           <div className="bg-card border border-border rounded-2xl max-w-[600px] w-full max-h-[90vh] overflow-y-auto animate-[slide-up_0.3s] shadow-2xl" onClick={e => e.stopPropagation()}>
-            <div className="h-[280px] flex items-center justify-center text-[100px] bg-surface relative">
+            <div className="h-[280px] flex items-center justify-center text-[100px] bg-white relative">
               <button className="absolute top-4 right-4 bg-black/50 text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-danger transition-colors" onClick={() => setSelectedProduct(null)}>
                 <X className="w-5 h-5" />
               </button>
@@ -290,7 +290,7 @@ function BounourTechShop() {
                   {selectedProduct.badge}
                 </span>
               )}
-              {selectedProduct.img ? <img src={selectedProduct.img} alt={selectedProduct.name} className="w-full h-full object-cover" /> : <span className="text-6xl text-muted-foreground">📦</span>}
+              {selectedProduct.img ? <img src={selectedProduct.img} alt={selectedProduct.name} className="w-full h-full object-contain p-4" /> : <span className="text-6xl text-muted-foreground">📦</span>}
             </div>
             <div className="p-6">
               <div className="text-xs text-primary uppercase tracking-[2px] font-semibold">{selectedProduct.brand}</div>
