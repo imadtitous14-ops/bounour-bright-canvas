@@ -245,7 +245,17 @@ function BounourTechShop() {
                       {p.badge}
                     </span>
                   )}
-                  {p.img ? <img src={p.img} alt={p.name} className="w-full h-full object-contain p-3" loading="lazy" /> : <span className="text-4xl text-muted-foreground">📦</span>}
+                  <img
+                    src={p.img || `https://source.unsplash.com/400x400/?${encodeURIComponent(p.name)}`}
+                    alt={p.name}
+                    className="w-full h-full object-contain p-3"
+                    loading="lazy"
+                    onError={(e) => {
+                      const img = e.currentTarget;
+                      const fallback = `https://source.unsplash.com/400x400/?${encodeURIComponent(p.name)}`;
+                      if (img.src !== fallback) img.src = fallback;
+                    }}
+                  />
                 </div>
                 <div className="p-4" onClick={() => { setSelectedProduct(p); setModalQty(1); }}>
                   <div className="text-[11px] text-primary uppercase tracking-[1.5px] font-semibold">{p.brand}</div>
