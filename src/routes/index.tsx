@@ -43,13 +43,20 @@ function BounourTechShop() {
   const productsRef = useRef<HTMLElement>(null);
 
   const filtered = useMemo(() => {
+    if (!Array.isArray(PRODUCTS)) return [];
+    const q = search.trim().toLowerCase();
     return PRODUCTS.filter(p => {
+      if (!p) return false;
       const matchCat = activeCat === "all" || p.cat === activeCat;
-      const q = search.toLowerCase();
-      const matchSearch = !q || p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q) || p.specs.toLowerCase().includes(q);
+      const name = (p.name ?? "").toLowerCase();
+      const brand = (p.brand ?? "").toLowerCase();
+      const specs = (p.specs ?? "").toLowerCase();
+      const matchSearch = !q || name.includes(q) || brand.includes(q) || specs.includes(q);
       return matchCat && matchSearch;
     });
   }, [PRODUCTS, activeCat, search]);
+
+  const isLoading = !Array.isArray(PRODUCTS) || PRODUCTS.length === 0;
 
   const cartTotal = useMemo(() => cart.reduce((s, i) => s + i.price * i.qty, 0), [cart]);
   const cartCount = useMemo(() => cart.reduce((s, i) => s + i.qty, 0), [cart]);
