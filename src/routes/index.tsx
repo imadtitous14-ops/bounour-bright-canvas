@@ -21,6 +21,12 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
+const FALLBACK_IMG =
+  "data:image/svg+xml;utf8," +
+  encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#1a1a1a"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="28">BOUNOUR TECH</text></svg>`
+  );
+
 function BounourTechShop() {
   const PRODUCTS = useMemo(() => getProducts(), []);
   const heroProduct = useMemo(() => PRODUCTS.find(p => p.id === 5), [PRODUCTS]);
