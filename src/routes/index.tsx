@@ -236,7 +236,12 @@ function BounourTechShop() {
           </h2>
           <span className="text-sm text-muted-foreground">{filtered.length} produit{filtered.length !== 1 ? "s" : ""}</span>
         </div>
-        {filtered.length === 0 ? (
+        {isLoading ? (
+          <div className="text-center py-16">
+            <div className="text-5xl mb-2 animate-pulse">⏳</div>
+            <div className="text-muted-foreground text-sm">Chargement…</div>
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="text-center py-16">
             <div className="text-5xl mb-2 grayscale opacity-50">🔍</div>
             <div className="text-muted-foreground text-sm">Aucun produit trouvé</div>
