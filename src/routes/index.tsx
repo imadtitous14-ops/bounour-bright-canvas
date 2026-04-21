@@ -186,16 +186,13 @@ function BounourTechShop() {
           </div>
         </div>
         <div className="flex justify-center md:order-none order-first">
-          <div className="bg-gradient-to-br from-surface to-card border border-border rounded-2xl p-10 w-full max-w-[380px] text-center relative overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
-            <div className="absolute -top-1/2 -right-1/2 w-full h-full bg-[radial-gradient(circle,var(--accent-glow)_0%,transparent_70%)] pointer-events-none" />
-            <div className="text-7xl mb-4 drop-shadow-[0_8px_32px_var(--accent-glow)]">📱</div>
-            {heroProduct && (
-              <>
-                <div className="font-display text-2xl tracking-wider">{heroProduct.name.toUpperCase()}</div>
-                <div className="text-primary text-xl font-bold mt-2">{fmt(heroProduct.price)} DA</div>
-                <div className="text-xs text-muted-foreground mt-1">{heroProduct.specs}</div>
-              </>
-            )}
+          <div className="bg-gradient-to-br from-surface to-card border border-border rounded-2xl p-10 w-full max-w-[380px] min-h-[320px] flex items-center justify-center text-center relative overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle,var(--accent-glow)_0%,transparent_65%)] pointer-events-none" />
+            <img
+              src={logoImg}
+              alt={STORE.name}
+              className="relative z-10 w-[200px] object-contain drop-shadow-[0_8px_32px_var(--accent-glow)]"
+            />
           </div>
         </div>
       </section>
