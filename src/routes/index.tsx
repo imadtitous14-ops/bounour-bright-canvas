@@ -394,7 +394,13 @@ function BounourTechShop() {
                 </div>
               ) : cart.map(item => (
                 <div key={item.id} className="flex gap-3.5 py-3.5 border-b border-border">
-                  <div className="w-14 h-14 bg-surface rounded-lg flex items-center justify-center text-3xl shrink-0">{item.img}</div>
+                  <div className="w-14 h-14 bg-surface rounded-lg flex items-center justify-center overflow-hidden shrink-0">
+                    {item.img ? (
+                      <img src={item.img} alt={item.name} className="w-full h-full object-contain p-1" loading="eager" />
+                    ) : (
+                      <span className="text-3xl">📦</span>
+                    )}
+                  </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-sm font-medium truncate">{item.name}</div>
                     <div className="text-sm text-primary font-semibold mt-0.5">{fmt(item.price * item.qty)} DA</div>
