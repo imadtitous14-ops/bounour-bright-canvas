@@ -132,15 +132,6 @@ function BounourTechShop() {
             BOUNOUR<span className="text-primary text-sm tracking-[5px]">TECH</span>
           </div>
           <div className="flex items-center gap-3">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
-              <input
-                className="bg-surface border border-border rounded-full py-2 pl-9 pr-4 text-sm w-[200px] focus:w-[260px] focus:border-primary focus:shadow-[0_0_12px_var(--accent-glow)] outline-none transition-all duration-300 text-foreground placeholder:text-muted-foreground"
-                placeholder="Rechercher…"
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-              />
-            </div>
             <button
               onClick={toggleTheme}
               className="p-2 border border-border rounded-full hover:border-primary transition-colors text-foreground"
@@ -204,6 +195,32 @@ function BounourTechShop() {
                 <div className="text-primary text-xl font-bold mt-2">{fmt(heroProduct.price)} DA</div>
                 <div className="text-xs text-muted-foreground mt-1">{heroProduct.specs}</div>
               </>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Search */}
+      <section className="max-w-[1280px] mx-auto px-6 pb-6">
+        <div className="mx-auto w-full max-w-[600px] search-gradient-bg rounded-2xl p-[2px] shadow-[0_8px_30px_var(--accent-glow)]">
+          <div className="relative bg-background rounded-2xl">
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
+            <input
+              type="text"
+              className="w-full h-[52px] bg-transparent rounded-2xl pl-14 pr-12 text-base text-foreground placeholder:text-muted-foreground outline-none border-2 border-transparent focus:border-primary focus:shadow-[0_0_0_4px_var(--accent-glow),0_0_20px_var(--accent-glow)] transition-all duration-300"
+              placeholder="Rechercher un produit, une marque…"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
+            {search && (
+              <button
+                type="button"
+                onClick={() => setSearch("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-surface transition-colors"
+                aria-label="Effacer la recherche"
+              >
+                <X className="w-4 h-4" />
+              </button>
             )}
           </div>
         </div>
