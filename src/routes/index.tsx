@@ -3,7 +3,7 @@ import { useState, useRef, useMemo, useCallback } from "react";
 import { Search, ShoppingBag, X, Minus, Plus, Trash2, ArrowRight, MapPin, Phone, Mail, Star, Sun, Moon } from "lucide-react";
 import { STORE, CATEGORIES, WILAYAS, fmt, getProducts, getBadgeVariant, type Product } from "@/lib/store-data";
 import { useTheme } from "@/hooks/use-theme";
-import logoImg from "@/assets/logo.png";
+import logoImg from "@/assets/logo-transparent.png";
 
 export const Route = createFileRoute("/")({
   component: BounourTechShop,
@@ -186,12 +186,12 @@ function BounourTechShop() {
           </div>
         </div>
         <div className="flex justify-center md:order-none order-first">
-          <div className="bg-gradient-to-br from-surface to-card border border-border rounded-2xl p-10 w-full max-w-[380px] min-h-[320px] flex items-center justify-center text-center relative overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle,var(--accent-glow)_0%,transparent_65%)] pointer-events-none" />
+          <div className="bg-transparent rounded-2xl p-10 w-full max-w-[380px] min-h-[320px] flex items-center justify-center text-center relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%] bg-[radial-gradient(circle,var(--accent-glow)_0%,transparent_60%)] pointer-events-none" />
             <img
               src={logoImg}
               alt={STORE.name}
-              className="relative z-10 w-[200px] object-contain drop-shadow-[0_8px_32px_var(--accent-glow)]"
+              className="relative z-10 w-[280px] object-contain drop-shadow-[0_8px_32px_var(--accent-glow)]"
             />
           </div>
         </div>
