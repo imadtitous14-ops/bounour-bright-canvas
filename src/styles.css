@@ -139,3 +139,19 @@
   from { transform: translateX(100%); }
   to { transform: translateX(0); }
 }
+@keyframes search-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.search-gradient-bg {
+  background: linear-gradient(
+    120deg,
+    color-mix(in oklab, var(--primary) 18%, transparent),
+    color-mix(in oklab, var(--primary) 4%, transparent),
+    color-mix(in oklab, var(--primary) 22%, transparent),
+    color-mix(in oklab, var(--primary) 6%, transparent)
+  );
+  background-size: 300% 300%;
+  animation: search-gradient-shift 8s ease infinite;
+}
