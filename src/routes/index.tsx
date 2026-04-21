@@ -200,6 +200,32 @@ function BounourTechShop() {
         </div>
       </section>
 
+      {/* Search */}
+      <section className="max-w-[1280px] mx-auto px-6 pb-6">
+        <div className="mx-auto w-full max-w-[600px] search-gradient-bg rounded-2xl p-[2px] shadow-[0_8px_30px_var(--accent-glow)]">
+          <div className="relative bg-background rounded-2xl">
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
+            <input
+              type="text"
+              className="w-full h-[52px] bg-transparent rounded-2xl pl-14 pr-12 text-base text-foreground placeholder:text-muted-foreground outline-none border-2 border-transparent focus:border-primary focus:shadow-[0_0_0_4px_var(--accent-glow),0_0_20px_var(--accent-glow)] transition-all duration-300"
+              placeholder="Rechercher un produit, une marque…"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
+            {search && (
+              <button
+                type="button"
+                onClick={() => setSearch("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-surface transition-colors"
+                aria-label="Effacer la recherche"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Categories */}
       <section className="max-w-[1280px] mx-auto px-6 pb-10" ref={productsRef}>
         <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
