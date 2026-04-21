@@ -29,7 +29,6 @@ const FALLBACK_IMG =
 
 function BounourTechShop() {
   const PRODUCTS = useMemo(() => getProducts(), []);
-  const heroProduct = useMemo(() => PRODUCTS.find(p => p.id === 5), [PRODUCTS]);
   const { theme, toggleTheme } = useTheme();
 
   const [activeCat, setActiveCat] = useState("all");
