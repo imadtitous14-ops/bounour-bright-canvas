@@ -132,15 +132,6 @@ function BounourTechShop() {
             BOUNOUR<span className="text-primary text-sm tracking-[5px]">TECH</span>
           </div>
           <div className="flex items-center gap-3">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
-              <input
-                className="bg-surface border border-border rounded-full py-2 pl-9 pr-4 text-sm w-[200px] focus:w-[260px] focus:border-primary focus:shadow-[0_0_12px_var(--accent-glow)] outline-none transition-all duration-300 text-foreground placeholder:text-muted-foreground"
-                placeholder="Rechercher…"
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-              />
-            </div>
             <button
               onClick={toggleTheme}
               className="p-2 border border-border rounded-full hover:border-primary transition-colors text-foreground"
