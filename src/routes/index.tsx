@@ -1,8 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useMemo, useCallback } from "react";
-import { Search, ShoppingBag, X, Minus, Plus, Trash2, ArrowRight, MapPin, Phone, Mail, Star, Sun, Moon } from "lucide-react";
+import { Search, ShoppingBag, X, Minus, Plus, Trash2, ArrowRight, MapPin, Phone, Mail, Star, Sun, Moon, LogIn, LogOut, ShieldCheck } from "lucide-react";
 import { STORE, CATEGORIES, WILAYAS, fmt, getProducts, getBadgeVariant, type Product } from "@/lib/store-data";
 import { useTheme } from "@/hooks/use-theme";
+import { useAuth } from "@/hooks/use-auth";
 import logoImg from "@/assets/logo-transparent.png";
 
 export const Route = createFileRoute("/")({
