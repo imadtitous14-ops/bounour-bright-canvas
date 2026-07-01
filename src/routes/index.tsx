@@ -1,8 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useMemo, useCallback } from "react";
-import { Search, ShoppingBag, X, Minus, Plus, Trash2, ArrowRight, MapPin, Phone, Mail, Star, Sun, Moon } from "lucide-react";
+import { Search, ShoppingBag, X, Minus, Plus, Trash2, ArrowRight, MapPin, Phone, Mail, Star, Sun, Moon, LogIn, LogOut, ShieldCheck } from "lucide-react";
 import { STORE, CATEGORIES, WILAYAS, fmt, getProducts, getBadgeVariant, type Product } from "@/lib/store-data";
 import { useTheme } from "@/hooks/use-theme";
+import { useAuth } from "@/hooks/use-auth";
 import logoImg from "@/assets/logo-transparent.png";
 
 export const Route = createFileRoute("/")({
@@ -30,6 +31,7 @@ const FALLBACK_IMG =
 function BounourTechShop() {
   const PRODUCTS = useMemo(() => getProducts(), []);
   const { theme, toggleTheme } = useTheme();
+  const { user, isAdmin, signOut } = useAuth();
 
   const [activeCat, setActiveCat] = useState("all");
   const [search, setSearch] = useState("");
@@ -138,6 +140,34 @@ function BounourTechShop() {
             >
               {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
+            {user ? (
+              <div className="flex items-center gap-2">
+                {isAdmin && (
+                  <span className="hidden sm:inline-flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-full bg-primary/15 text-primary border border-primary/30">
+                    <ShieldCheck className="w-3 h-3" /> Admin
+                  </span>
+                )}
+                <span className="hidden md:inline text-xs text-muted-foreground max-w-[160px] truncate">
+                  {user.email}
+                </span>
+                <button
+                  onClick={() => signOut()}
+                  className="p-2 border border-border rounded-full hover:border-primary transition-colors text-foreground"
+                  title="Sign out"
+                >
+                  <LogOut className="w-4 h-4" />
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/auth"
+                className="p-2 border border-border rounded-full hover:border-primary transition-colors text-foreground inline-flex items-center gap-2 text-sm px-3"
+                title="Sign in"
+              >
+                <LogIn className="w-4 h-4" />
+                <span className="hidden sm:inline">Sign in</span>
+              </Link>
+            )}
             <button
               className="relative border border-border rounded-full px-4 py-2 flex items-center gap-2 text-sm font-medium hover:border-primary hover:shadow-[0_0_12px_var(--accent-glow)] transition-all text-foreground"
               onClick={() => setCartOpen(true)}
